@@ -65,8 +65,8 @@ public class WeatherServiceManager{
     }
 
 
-	// Uses Google's gson library to convert json into filled java objects
-	// using the java object hierarchy that you already created.
+    // Uses Google's gson library to convert json into filled java objects
+    // using the java object hierarchy that you already created.
     private void convertJsonToJavaObject(){
         Gson gson = new GsonBuilder().create();
         m_oWeather = gson.fromJson(m_sWeatherJson, Weather.class);
