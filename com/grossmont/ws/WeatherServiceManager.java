@@ -27,7 +27,6 @@ public class WeatherServiceManager{
     	String sServiceReturnJson = "";
 
     	try {
-
             // Call weather API.
             URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" +
                     sCity + "&appid=1868f2463a960613c0a78b66a99b5e5f&units=imperial");
@@ -54,7 +53,6 @@ public class WeatherServiceManager{
             //System.out.println(sServiceReturnJson);
             // *****************
 
-
         } catch (Exception ex) {
             ex.printStackTrace();
             System.out.println("An error occurred in callWeatherWebService() in WeatherServiceManager: " + ex.toString());
@@ -70,33 +68,25 @@ public class WeatherServiceManager{
 	// Uses Google's gson library to convert json into filled java objects
 	// using the java object hierarchy that you already created.
     private void convertJsonToJavaObject(){
-
         Gson gson = new GsonBuilder().create();
-
         m_oWeather = gson.fromJson(m_sWeatherJson, Weather.class);
     }
 
-
-    // This uses Google's gson library for parsing json.
     public float getCurrentTemp(){
-
         return m_oWeather.main.temp;
     }
 
-
     public String getCityName(){
-
         return m_oWeather.name;
     }
-    public float getHighTemp(){
 
+    public float getHighTemp(){
         return m_oWeather.main.temp_max;
     }
-    public float getLowTemp(){
 
+    public float getLowTemp(){
         return m_oWeather.main.temp_min;
     }
-
 
     public static void main(String[] args) {
 
